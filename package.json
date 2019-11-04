@@ -1,0 +1,23 @@
+{
+  "name": "blog-admin",
+  "version": "1.0.0",
+  "description": "个人博客后台管理系统",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "author": "danbin",
+  "license": "ISC",
+  "dependencies": {
+    "element-ui": "^2.12.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^3.0.4",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-cli": "^3.3.9"
+  }
+}
