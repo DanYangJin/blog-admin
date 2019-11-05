@@ -8,7 +8,6 @@
     </transition-group>
   </el-breadcrumb>
 </template>
-
 <script>
 import pathToRegexp from 'path-to-regexp'
 
