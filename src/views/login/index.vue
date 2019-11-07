@@ -54,6 +54,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
+import { login } from '@/api/login'
 
 export default {
   name: 'Login',
@@ -74,7 +75,7 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
+        username: 'danbin',
         password: '111111'
       },
       loginRules: {
@@ -109,7 +110,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
+          login(this.loginForm).then(() => {
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {

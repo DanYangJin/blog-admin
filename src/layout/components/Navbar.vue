@@ -7,7 +7,6 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <!--TODO 头像动态更新-->
           <img :src="'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1085446177,1382949253&fm=26&gp=0.jpg'" class="user-avatar">
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -87,7 +86,7 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    line-height: 50px;
+    /*line-height: 50px;*/
 
     &:focus {
       outline: none;
@@ -112,11 +111,12 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 30px;
+      margin: 5px 20px;
 
       .avatar-wrapper {
-        margin-top: 5px;
         position: relative;
+        display: flex;
+        align-content: center;
 
         .user-avatar {
           cursor: pointer;

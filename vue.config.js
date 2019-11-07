@@ -23,6 +23,15 @@ module.exports = {
             warnings: false,
             errors: true
         },
+        proxy: {
+            '/api': {
+                target: 'http://performance.danyangjin.com/api',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '/'
+                }
+            }
+        }
     },
     configureWebpack: {
         name: name,
