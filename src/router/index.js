@@ -44,13 +44,13 @@ export const constantRoutes = [
       {
         path: 'articleList',
         name: '文章列表',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/article/articleList/index'),
         meta: { title: '文章列表', icon: 'list' }
       },
       {
         path: 'articleStatistics',
         name: '数据统计',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/article/articleStatistics/index'),
         meta: { title: '数据统计', icon: 'tree' }
       }
     ]
