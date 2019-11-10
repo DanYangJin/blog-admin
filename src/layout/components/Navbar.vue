@@ -1,11 +1,11 @@
 <template>
   <div class="navbar">
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
     <breadcrumb class="breadcrumb-container" />
-
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
+      <size-select class="right-menu-item hover-effect" />
+      <lang-select class="right-menu-item hover-effect" />
+      <el-dropdown class="right-menu-item avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1085446177,1382949253&fm=26&gp=0.jpg'" class="user-avatar">
         </div>
@@ -34,11 +34,15 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import SizeSelect from '@/components/SizeSelect'
+import LangSelect from '@/components/LangSelect'
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    SizeSelect,
+    LangSelect
   },
   computed: {
     ...mapGetters([
@@ -86,7 +90,7 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    /*line-height: 50px;*/
+    line-height: 50px;
 
     &:focus {
       outline: none;
@@ -111,12 +115,11 @@ export default {
     }
 
     .avatar-container {
-      margin: 5px 20px;
+      margin-right: 20px;
 
       .avatar-wrapper {
+        margin-top: 5px;
         position: relative;
-        display: flex;
-        align-content: center;
 
         .user-avatar {
           cursor: pointer;
