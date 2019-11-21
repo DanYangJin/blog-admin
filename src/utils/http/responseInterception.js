@@ -6,18 +6,19 @@ import axios from 'axios'
  */
 axios.interceptors.response.use(
   config => {
-    // 统一登录失效处理
-    if (config.data.code === -104) {
-      sessionStorage.clear()
-      localStorage.clear()
+    if (config.data.resultCode === -105) {
+      sessionStorage.clear();
+      localStorage.clear();
       setTimeout(() => {
-
-      }, 2000)
+        // TODO 跳转到登录页
+      }, 2000);
+    } else {
+      return config.data;
     }
-    return config.data
   },
   error => {
-    let errorMsg = ''
+    let resultMessage = '';
+    let resultCode = -104;
     if (error && error.response) {
       let errorMsgList = {
         400: '错误请求【400】',
@@ -32,16 +33,20 @@ axios.interceptors.response.use(
         503: '服务不可用【503】',
         504: '网络超时【504】',
         505: 'http版本不支持该请求【505】'
-      }
-      errorMsg = errorMsgList[+error.response.status] || `连接错误${error.response.status}`
+      };
+      resultMessage = errorMsgList[+error.response.status] || '未知错误';
+      resultCode = error.response.status
     } else {
       let errorMsgList = {
         'Network Error': '请检查网络情况',
         'Repeated requests': '同一时间请勿重复请求'
-      }
-      errorMsg = errorMsgList[error.message] || error.message
+      };
+      resultMessage = errorMsgList[error.message] || '未知错误'
     }
-    message.error(errorMsg)
-    return Promise.reject(error)
+
+    return Promise.reject({
+      resultCode,
+      resultMessage
+    })
   }
-)
+);

@@ -23,9 +23,10 @@ module.exports = {
             warnings: false,
             errors: true
         },
+        // 本地调试不需要/api
         proxy: {
             '/api': {
-                target: 'http://performance.danyangjin.com/api',
+                target: 'http://192.168.31.45:10010/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': '/'

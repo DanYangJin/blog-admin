@@ -35,7 +35,7 @@ function http(reqOptions) {
     console.log("reqData: " + reqData)
     return new Promise((resolve, reject) => {
         axios[options.method](
-            "/api" + urlMethod,
+            urlMethod,
             reqData,
             {
                 headers: {
@@ -43,7 +43,13 @@ function http(reqOptions) {
                 }
             }
         ).then(response => {
-            resolve(response)
+            let resultCode = response.resultCode;
+            let resultMessage = response.resultMessage;
+            if (resultCode === 200) {
+                resolve(response);
+            } else {
+                reject({resultCode, resultMessage});
+            }
         }).catch((error) => {
             reject(error)
         })
