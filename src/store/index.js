@@ -4,7 +4,8 @@ import getters from './getters'
 import app from './modules/app'
 import settings from './modules/settings'
 
-Vue.use(Vuex)
+
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
@@ -12,6 +13,6 @@ const store = new Vuex.Store({
     settings
   },
   getters
-})
+});
 
 export default store

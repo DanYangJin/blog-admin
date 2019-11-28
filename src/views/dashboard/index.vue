@@ -13,6 +13,17 @@ export default {
     ...mapGetters([
       'name'
     ])
+  },
+  watch: {
+    /**
+     * @fun 监听路由改变
+     */
+    '$route': {
+      handler(val) {
+        console.log(val.path.split('/').slice(1))
+      },
+      immediate: true
+    }
   }
 }
 </script>

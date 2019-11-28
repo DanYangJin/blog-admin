@@ -6,9 +6,9 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Admin Template' // page title
+const name = defaultSettings.title; // page title
 
-const port = process.env.port || process.env.npm_config_port || 9528 // dev port
+const port = process.env.port || process.env.npm_config_port || 9528; // dev port
 
 module.exports = {
     publicPath: '/',
@@ -26,7 +26,7 @@ module.exports = {
         // 本地调试不需要/api
         proxy: {
             '/api': {
-                target: 'http://172.16.20.54:10010/',
+                target: 'http://172.20.10.7:10010/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': '/'

@@ -4,14 +4,14 @@ import axios from 'axios'
  * @function 响应拦截，如果是接口报错情况下做对应的提示；如果接口正常，则继续
  * @author Eleven
  */
+
 axios.interceptors.response.use(
   config => {
     if (config.data.resultCode === -105) {
       sessionStorage.clear();
       localStorage.clear();
       setTimeout(() => {
-        console.log("logout")
-        // this.$router.push(`/admin?redirect=${this.$route.fullPath}`)
+        window.location.href = `/login`
       }, 2000);
     } else {
       return config.data;
