@@ -21,12 +21,13 @@ Vue.config.productionTip = false
 NProgress.configure({ showSpinner: false })
 
 router.beforeEach((to,from,next) => {
-    NProgress.start()
-    next()
+    NProgress.start();
+    next();
 })
 
-router.afterEach(() => {
-    NProgress.done()
+router.afterEach((to, from, next) => {
+    document.title = to.meta.title || '管理后台';
+    NProgress.done();
 })
 
 new Vue({

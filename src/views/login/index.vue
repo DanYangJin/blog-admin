@@ -55,7 +55,6 @@
 <script>
 import { validUsername } from '@/utils/validate'
 import { login } from '@/api/admin'
-import { session } from "@/utils/storage";
 
 export default {
   name: 'Login',
@@ -112,11 +111,10 @@ export default {
         if (valid) {
           this.loading = true
           login(this.loginForm).then((res) => {
-            session.setItem('login-data', res)
-            this.$router.push({ path: this.redirect || '/' })
+            localStorage.setItem("accessToken", res['data']['accessToken']);
+            this.$router.push({ path: this.redirect || '/' });
             this.loading = false
-          }).catch((error) => {
-            this.$message.error(error.resultMessage);
+          }).catch(() => {
             this.loading = false
           })
         } else {

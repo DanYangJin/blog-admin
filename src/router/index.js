@@ -75,7 +75,7 @@ export const constantRoutes = [
     children: [{
       path: 'adminList',
       name: '管理员',
-      component: () => import('@/views/dashboard/index'),
+      component: () => import('@/views/admin/adminList/index'),
       meta: { title: '管理员', icon: 'user' }
     }]
   },

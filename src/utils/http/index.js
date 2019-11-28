@@ -19,8 +19,9 @@ function http(reqOptions) {
         specialError: false, // 特殊的错误处理，这边指报错不使用统一提示，需要做特殊处理;这时候把整个response返回
         specialLoading: false, // 特殊的请求loading，不需要使用统一的loading开关
         method: 'post', // 请求类型，默认post
-        contentType: 'application/json;charset=utf-8;' // 返回数据contentType类型，默认是'application/json;charset=utf-8;'
-    }
+        contentType: 'application/json;charset=utf-8;', // 返回数据contentType类型，默认是'application/json;charset=utf-8;'
+        showErrorHint: true // 是否显示错误提示
+    };
     let urlMethod = ''
 
     if (typeof reqOptions === 'string') {
@@ -48,12 +49,19 @@ function http(reqOptions) {
             if (resultCode === 200) {
                 resolve(response);
             } else {
-                reject({resultCode, resultMessage});
+                handleReject(reject, {resultCode, resultMessage}, options.showErrorHint);
             }
         }).catch((error) => {
-            reject(error)
+            handleReject(reject, error, options.showErrorHint);
         })
     })
+}
+
+function handleReject(reject, error, showErrorHint) {
+    if (showErrorHint) {
+        this.$message.error(error.resultMessage);
+    }
+    reject(error);
 }
 
 export default http

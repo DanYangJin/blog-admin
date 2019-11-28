@@ -52,9 +52,7 @@ export default {
     },
     logout() {
       logOut().then(() => {
-        // this.$router.push(`/admin?redirect=${this.$route.fullPath}`)
-      }).catch(() => {
-
+        this.$router.push(`/login?redirect=${this.$route.fullPath}`)
       });
     }
   }

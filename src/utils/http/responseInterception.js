@@ -44,7 +44,6 @@ axios.interceptors.response.use(
       };
       resultMessage = errorMsgList[error.message] || '未知错误'
     }
-
     return Promise.reject({
       resultCode,
       resultMessage

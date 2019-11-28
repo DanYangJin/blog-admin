@@ -20,4 +20,25 @@ export function logOut () {
   })
 }
 
+/**
+ * 获取管理员列表
+ */
+export function getAdminList () {
+  return http({
+    url: '/admin/getAdminList',
+  })
+}
+
+/**
+ * 删除管理员
+ */
+export function deleteAdmin (adminId) {
+  return http({
+    url: '/admin/deleteAdmin',
+    data: {
+      adminId: adminId
+    }
+  })
+}
+
 
