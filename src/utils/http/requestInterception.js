@@ -22,7 +22,7 @@ axios.interceptors.request.use(config => {
   }
 
   config.headers = {
-    'token': localStorage.getItem('token'),
+    'accessToken': localStorage.getItem('token'),
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json;charset=utf-8;'
   }

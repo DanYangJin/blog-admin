@@ -10,19 +10,11 @@
           <img :src="'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1085446177,1382949253&fm=26&gp=0.jpg'" class="user-avatar">
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
-            <el-dropdown-item>
-              Home
-            </el-dropdown-item>
-          </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
-            <el-dropdown-item>Github</el-dropdown-item>
-          </a>
-          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-            <el-dropdown-item>Docs</el-dropdown-item>
-          </a>
-          <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">Log Out</span>
+          <el-dropdown-item>
+            <span style="display:block;" @click="modifyPwd">修改密码</span>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <span style="display:block;" @click="logout">退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -36,6 +28,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import SizeSelect from '@/components/SizeSelect'
 import LangSelect from '@/components/LangSelect'
+import { logOut } from '@/api/admin'
 
 export default {
   components: {
@@ -54,9 +47,15 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    modifyPwd() {
+
+    },
+    logout() {
+      logOut().then(() => {
+        // this.$router.push(`/admin?redirect=${this.$route.fullPath}`)
+      }).catch(() => {
+
+      });
     }
   }
 }

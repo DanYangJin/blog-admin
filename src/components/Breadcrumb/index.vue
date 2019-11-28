@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     getBreadcrumb() {
-      // only show routes with meta.title
+
       let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
       const first = matched[0]
 
@@ -42,12 +42,12 @@ export default {
       if (!name) {
         return false
       }
-      return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
+      return name.trim().toLocaleLowerCase() === '主页'.toLocaleLowerCase()
     },
     pathCompile(path) {
       // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
       const { params } = this.$route
-      var toPath = pathToRegexp.compile(path)
+      let toPath = pathToRegexp.compile(path)
       return toPath(params)
     },
     handleLink(item) {

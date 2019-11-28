@@ -10,7 +10,8 @@ axios.interceptors.response.use(
       sessionStorage.clear();
       localStorage.clear();
       setTimeout(() => {
-        // TODO 跳转到登录页
+        console.log("logout")
+        // this.$router.push(`/admin?redirect=${this.$route.fullPath}`)
       }, 2000);
     } else {
       return config.data;

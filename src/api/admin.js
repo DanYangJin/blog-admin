@@ -11,3 +11,13 @@ export function login (params) {
   })
 }
 
+/**
+ * 退出登录接口
+ */
+export function logOut () {
+  return http({
+    url: '/admin/logout',
+  })
+}
+
+

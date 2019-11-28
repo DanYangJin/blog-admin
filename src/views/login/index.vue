@@ -54,7 +54,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-import { login } from '@/api/login'
+import { login } from '@/api/admin'
 import { session } from "@/utils/storage";
 
 export default {

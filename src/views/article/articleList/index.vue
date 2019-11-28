@@ -5,13 +5,13 @@
                 <el-option v-for="item in articleStatusOptions" :key="item" :label="item"
                            :value="item"/>
             </el-select>
-            <el-button v-waves class="filter-item" type="primary" icon="el-icon-search">
+            <el-button class="filter-item" type="primary" icon="el-icon-search">
                 搜索
             </el-button>
             <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit">
                 添加
             </el-button>
-            <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleExport">
+            <el-button class="filter-item" type="primary" :loading="downloadLoading"  icon="el-icon-download" @click="handleExport">
                 导出
             </el-button>
         </div>
