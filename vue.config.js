@@ -26,7 +26,7 @@ module.exports = {
         // 本地调试不需要/api
         proxy: {
             '/api': {
-                target: 'http://192.168.31.45:10010/',
+                target: 'http://172.16.20.54:10010/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': '/'

@@ -26,7 +26,7 @@ router.beforeEach((to,from,next) => {
 })
 
 router.afterEach((to, from, next) => {
-    document.title = to.meta.title || '管理后台';
+    document.title = to.meta.title || '个人博客后台管理系统';
     NProgress.done();
 })
 
