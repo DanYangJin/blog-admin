@@ -1,9 +1,10 @@
 <template>
     <div class="app-container">
-        <el-button class="filter-item" type="primary" icon="el-icon-edit">
-            添加
-        </el-button>
-
+        <router-link :to="'/admin/addAdmin'">
+            <el-button class="filter-item" type="primary" icon="el-icon-edit">
+                添加
+            </el-button>
+        </router-link>
         <el-table class="admin-list-table" empty-text="暂无数据" :data="adminListData" border>
             <el-table-column label="序号" width="100" align="center">
                 <template slot-scope="scope">
@@ -25,7 +26,8 @@
                     <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">
                         {{scope.row.status == 1 ? '停用': '启用'}}
                     </el-button>
-                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">
+                    <el-button size="mini" type="danger"
+                               @click="handleDelete(scope.$index, scope.row)">
                         删除
                     </el-button>
                 </template>
@@ -37,7 +39,6 @@
 
 <script>
     import {getAdminList, deleteAdmin} from "@/api/admin";
-
     export default {
         data() {
             return {

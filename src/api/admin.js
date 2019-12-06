@@ -41,4 +41,17 @@ export function deleteAdmin (adminId) {
   })
 }
 
+/**
+ * 添加管理员
+ */
+export function addAdmin (adminUsername, adminPassword) {
+  return http({
+    url: '/admin/addAdmin',
+    data: {
+      adminUsername: adminUsername,
+      adminPassword: adminPassword
+    }
+  })
+}
+
 

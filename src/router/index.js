@@ -59,12 +59,21 @@ export const constantRoutes = [
     path: '/admin',
     component: Layout,
     redirect: '/admin/adminList',
-    children: [{
-      path: 'adminList',
-      name: '管理员',
-      component: () => import('@/views/admin/adminList/index'),
-      meta: { title: '管理员', icon: 'user' }
-    }]
+    children: [
+        {
+          path: 'adminList',
+          name: '管理员',
+          component: () => import('@/views/admin/adminList/index'),
+          meta: { title: '管理员', icon: 'user' }
+        },
+        {
+          path: 'addAdmin',
+          name: '添加管理员',
+          component: () => import('@/views/admin/addAdmin/index'),
+          meta: { title: '添加管理员'},
+          hidden: true
+        }
+    ]
   },
   { path: '*', redirect: '/404', hidden: true }
 ]
