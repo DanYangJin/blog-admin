@@ -14,14 +14,16 @@
             <el-button class="filter-item" type="primary" :loading="downloadLoading"  icon="el-icon-download" @click="handleExport">
                 导出
             </el-button>
+            <el-button class="filter-item" type="primary" @click="handleMethodTest">
+                测试
+            </el-button>
         </div>
     </div>
 </template>
 
 <script>
-    import myStore from "@/store/myStore";
+    import store from "@/store/store";
     export default {
-        name: "ArticleList",
         data() {
             return {
                 listQuery: {
@@ -29,13 +31,19 @@
                 },
                 articleStatusOptions: ['待审核', '已审核', '已删除'],
                 downloadLoading: false,
-                sharedState:myStore.state
+                sharedState:store.state
             }
         },
         methods: {
             handleExport() {
-                this.downloadLoading = true
-                myStore.setMessageAction('helloworld')
+                this.downloadLoading = true;
+                setTimeout(function () {
+                    this.downloadLoading = false;
+                }, 5000)
+            },
+            handleMethodTest() {
+                let m = 1;
+                console.log("m: " + m)
             }
         }
 

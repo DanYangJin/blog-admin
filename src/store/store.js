@@ -1,4 +1,4 @@
-var myStore = {
+let store = {
     debug: true,
     state: {
         message: 'Hello!'
@@ -13,4 +13,4 @@ var myStore = {
     }
 };
 
-export default myStore
+export default store

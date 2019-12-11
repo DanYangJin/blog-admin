@@ -1,14 +1,13 @@
 <template>
-    <div>ArticleList</div>
+    <div>{{sharedState.message}}</div>
 </template>
 
 <script>
-    import myStore from "@/store/myStore";
+    import store from "@/store/store";
     export default {
-        name: "ArticleList",
         data() {
             return {
-                sharedState: myStore.state
+                sharedState: store.state
             }
         }
 
