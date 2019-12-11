@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import myStore from "@/store/myStore";
     export default {
         name: "ArticleList",
         data() {
@@ -27,12 +28,14 @@
                     articleStatus: undefined
                 },
                 articleStatusOptions: ['待审核', '已审核', '已删除'],
-                downloadLoading: false
+                downloadLoading: false,
+                sharedState:myStore.state
             }
         },
         methods: {
             handleExport() {
                 this.downloadLoading = true
+                myStore.setMessageAction('helloworld')
             }
         }
 
